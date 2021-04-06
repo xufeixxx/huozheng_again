@@ -140,8 +140,6 @@ def point_in_which_VCell(x, y):
     #     if point_in_notIn_polygon(x, y, voronoiCell):
     #         return voronoiCell
     # return 0
-
-
 # 返回0代表不在任何一个维诺格中，此点在实验中应该被舍弃，形参x， y是用户的位置数据
 
 
@@ -161,7 +159,7 @@ def make_randNum_in_vCell(voronoiCell):
 
 
 def make_userPoints():
-    # 用户点随机分布
+    # 用户点均匀分布
     number = setts.limit_user_number
     w0 = setts.map_width[0]
     w1 = setts.map_width[1]

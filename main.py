@@ -20,6 +20,7 @@ def main():
         for size in size_list:
             pro = space_range_size(size)
             print("theta = ", theta, "size = ", size, "相对误差 = ", pro, "\n")
+    print("hello world")
     # get_send_data(0.4)
     # pro = space_range_size(1)
     # print("theta = 0.4","size = 0.9","相对误差 = ", pro, "\n")
@@ -30,4 +31,4 @@ if __name__ == "__main__":
 
 # func.show()
 
-print("hello world")
+
