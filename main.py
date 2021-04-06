@@ -1,35 +1,33 @@
 from func.function import make_voronoi, make_points
-from func.function import Function,get_send_data, make_userPoints, disturbance_location_data
+from func.function import Function, get_send_data, make_userPoints, disturbance_location_data
 from func.region_query import space_range_size
 from overall.list import *
+import profile
 
 
-make_points()
-vor = make_voronoi()
-func = Function(vor)
-func.make_vertices()
-func.make_ridges()
-func.make_voronoiCells()
-make_userPoints()
-disturbance_location_data()
-size_list = [0.05, 0.1, 0.15, 0.2, 0.4]
-theta_list = [0.25, 0.5, 0.75, 1]
-for theta in theta_list:
-    get_send_data(theta)
-    for size in size_list:
-        pro = space_range_size(size)
-        print("theta = ",theta,"size = ",size,"相对误差 = ",pro,"\n")
+def main():
+    make_points()
+    vor = make_voronoi()
+    func = Function(vor)
+    func.make_vertices()
+    func.make_voronoiCells()
+    make_userPoints()
+    disturbance_location_data()
+    size_list = [0.05, 0.1, 0.15, 0.2, 0.4]
+    theta_list = [0.25, 0.5, 0.75, 1]
+    for theta in theta_list:
+        get_send_data(theta)
+        for size in size_list:
+            pro = space_range_size(size)
+            print("theta = ", theta, "size = ", size, "相对误差 = ", pro, "\n")
+    # get_send_data(0.4)
+    # pro = space_range_size(1)
+    # print("theta = 0.4","size = 0.9","相对误差 = ", pro, "\n")
 
-#func.show()
 
-print("helloworld")
+if __name__ == "__main__":
+    profile.run("main()")
 
-"""
-空维诺格的比例
-i = 0
-for reg in vor.regions:
-    for k in reg:
-        if k == -1:
-            i += 1
-print(i/(len(vor.regions)-1))
-"""
+# func.show()
+
+print("hello world")

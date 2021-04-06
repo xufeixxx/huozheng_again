@@ -2,7 +2,7 @@ class VoronoiCell:
     def __init__(self, vc_id):
         self.vc_id = vc_id
         self.ridge_list = []
-        self.polySides = 0
+        self.polySides = 0   # 顶点数量
         self.polyX = []
         self.polyY = []
         self.maxX = 0

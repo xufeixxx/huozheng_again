@@ -1,21 +1,21 @@
-import math
-
-
 class Settings:
 
     def __init__(self):
         self.map_width = [-166.524881, 145.003318]  # 经度
         self.map_length = [30.000060, 59.999807]  # 纬度
-        self.road_point_num = 1430000
-        self.user_dataset_filename = 'D:\\研究生\\数据集\\gowalla\\new_gowalla.csv'
-        self.limit_user_number = 5500000  # 避免通过数据集过大是程序运行缓慢，来限制用户数量，例如，10即表示只读取数据集前十行的用户数据
+        # self.map_width = [1, 500]  # 经度
+        # self.map_length = [1, 500]
+        self.road_point_num = 104407
+        # self.user_dataset_filename = 'D:\\研究生\\数据集\\gowalla\\new_gowalla.csv'
+        self.user_dataset_filename = 'D:\\研究生\\数据集\\gowalla\\gowalla.csv'
+        self.limit_user_number = 15116  # 避免通过数据集过大是程序运行缓慢，来限制用户数量，例如，10即表示只读取数据集前十行的用户数据
         # limit_user_number = 0时将没有限制,会读取数据集中的全部数据
         self.num_of_fake_location = 10
         # self.Privacy_parameters = 0.25  # theta
         # self.Real_location_probability = math.exp(self.Privacy_parameters) / (
         #             self.num_of_fake_location + math.exp(self.Privacy_parameters))
         # self.Fake_location_probability = 1 / (self.num_of_fake_location + math.exp(self.Privacy_parameters))
-        #self.space_range_size = 0.05
+        # self.space_range_size = 0.05
 
 
 """
