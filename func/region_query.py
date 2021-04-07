@@ -17,7 +17,6 @@ def space_range_size(size):
         ml0 = setts.map_length[0]
         ml1 = setts.map_length[1]
         for user in userPoint_list:
-
             if user.in_voronoiCell:
                 if mw0 <= user.u_longitude <= new_width_end and ml0 <= user.u_latitude <= \
                         ml1:
