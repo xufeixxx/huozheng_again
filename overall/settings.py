@@ -5,10 +5,10 @@ class Settings:
         self.map_length = [30.000060, 59.999807]  # 纬度
         # self.map_width = [1, 500]  # 经度
         # self.map_length = [1, 500]
-        self.road_point_num = 104407
+        self.road_point_num = 100
         # self.user_dataset_filename = 'D:\\研究生\\数据集\\gowalla\\new_gowalla.csv'
         self.user_dataset_filename = 'D:\\研究生\\数据集\\gowalla\\gowalla.csv'
-        self.limit_user_number = 15116  # 避免通过数据集过大是程序运行缓慢，来限制用户数量，例如，10即表示只读取数据集前十行的用户数据
+        self.limit_user_number = 100000  # 避免通过数据集过大是程序运行缓慢，来限制用户数量，例如，10即表示只读取数据集前十行的用户数据
         # limit_user_number = 0时将没有限制,会读取数据集中的全部数据
         self.num_of_fake_location = 10
         # self.Privacy_parameters = 0.25  # theta
