@@ -6,7 +6,6 @@ from entity.point import Point
 from entity.vertex import Vertex
 from entity.voronoiCell import VoronoiCell
 from entity.uPoint import UserPoint
-import csv
 import numpy as np
 import matplotlib.pyplot as plt
 import random
@@ -106,11 +105,11 @@ def exist_negative_one(list):
 
 
 def from_vId_find_vertex(v_id):
-    a = list(filter(lambda v: v.v_id == v_id, vertex_list))
-    return a[0]
-    # for v in vertex_list:
-    #     if v.v_id == v_id:
-    #         return v
+    # a = list(filter(lambda v: v.v_id == v_id, vertex_list))
+    # return a[0]
+    for v in vertex_list:
+        if v.v_id == v_id:
+            return v
 
 
 def point_in_notIn_polygon(x, y, voronoiCell):  # 此算法从网上获得https://blog.csdn.net/hjh2005/article/details/9246967
@@ -131,15 +130,16 @@ def point_in_notIn_polygon(x, y, voronoiCell):  # 此算法从网上获得https:
 
 
 def point_in_which_VCell(x, y):
-    a = list(filter(lambda vc: point_in_notIn_polygon(x, y, vc), voronoiCell_list))
-    if len(a) == 0:
-        return 0
-    else:
-        return a[0]
-    # for voronoiCell in voronoiCell_list:
-    #     if point_in_notIn_polygon(x, y, voronoiCell):
-    #         return voronoiCell
-    # return 0
+    # a = list(filter(lambda vc: point_in_notIn_polygon(x, y, vc), voronoiCell_list))
+    # if len(a) == 0:
+    #     return 0
+    # else:
+    #     return a[0]
+    for voronoiCell in voronoiCell_list:
+        if voronoiCell.minX <= x <= voronoiCell.maxX and voronoiCell.minY <= y <= voronoiCell.maxY:
+            if point_in_notIn_polygon(x, y, voronoiCell):
+                return voronoiCell
+    return 0
 # 返回0代表不在任何一个维诺格中，此点在实验中应该被舍弃，形参x， y是用户的位置数据
 
 
@@ -167,7 +167,7 @@ def make_userPoints():
     l1 = setts.map_length[1]
     user_point = np.random.uniform([w0, l0], [w1, l1], (number, 2))
     user1 = user_point.T
-    userPoint_list.extend(list(map(lambda id, x, y: UserPoint(id + 1, x, y), range(number), user1[0], user1[1])))
+    userPoint_list.extend(list(map(lambda u_id, x, y: UserPoint(u_id + 1, x, y), range(number), user1[0], user1[1])))
 
     # with open(setts.user_dataset_filename) as f:
     #     reader = csv.reader(f)

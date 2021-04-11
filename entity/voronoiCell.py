@@ -9,4 +9,3 @@ class VoronoiCell:
         self.maxY = 0
         self.minX = 0
         self.minY = 0
-
